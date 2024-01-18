@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="order.css">
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+            const scrollLinks = document.querySelectorAll('.scroll-link');
+            scrollLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+  fetch('get_food_items.php')
+    .then(response => response.json())
+    .then(data => {
+      populateFoodItemOptions(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
+
+  function populateFoodItemOptions(foodItems) {
+    var selectElement = document.getElementById("foodItemSelect");
+
+    foodItems.forEach(function(foodItem) {
+      var option = document.createElement("option");
+      option.value = foodItem.product_name; 
+      option.text = foodItem.product_name; 
+      selectElement.add(option);
+    });
+  }
+
+ 
+  document.getElementById("submitOrderButton").addEventListener("click", function() {
+    var orderForm = document.getElementById("orderForm");
+
+
+    if (!orderForm.checkValidity()) {
+      alert("Please fill in all the required fields.");
+      return;
+    }
+
+    var formData = new FormData(orderForm);
+
+    fetch('submit_order.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        
+        alert("Order placed successfully!");
+
+        
+        orderForm.reset();
+      } else {
+        
+        alert("Error: " + data.message);
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const contactForm = document.getElementById('contactForm');
+
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Feedback submitted successfully!');
+                contactForm.reset();
+            } else {
+                alert('Error submitting feedback. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An unexpected error occurred. Please try again.');
+        });
+    });
+});
+        
+  </script>
+
+    <title>Order</title>
+
+
+</head>
+<body>
+    <header>
+        <p class="Logo">The Outer Clove</p>
+        <input type="checkbox" class="btn" id="check" />
+        <label for="check" class="menu2">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+        
+        <div class="nav">
+            <ol>
+                <li><a  href="userhome.html" >Home</a></li>
+                <li><a  href="Reservation.html">Reservation</a></li>
+                <li><a href="order.html" class="active">Order</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ol>
+        </div>
+        <span class="login">
+            <a href="login-resister.html" target="_self" class="login-link">
+                <ion-icon name="person-circle-outline" aria-hidden="true"></ion-icon>
+                Logout
+            </a>
+        </span>
+    </header>
+
+    <section class="online-orders-section">
+        <h2 class="online-orders-title">Place Your Online Order</h2>
+
+        <img class="online-orders-cover" src="Assets/order.jpg" alt="Food Cover Image">
+
+        <p class="online-orders-description">
+            Explore our menu and place your order online. Delight your taste buds with our delicious offerings delivered
+            to your doorstep.
+        </p>
+    </section>
+
+    <section id="orderSection">
+        <h2>Place an Order</h2>
+      
+        <form id="orderForm" action="submit_order.php" method="post">
+          <label for="customerName">Name:</label>
+          <input type="text" id="customerName" name="customerName" required><br><br>
+      
+          <label for="customerEmail">Email:</label>
+          <input type="email" id="customerEmail" name="customerEmail" required><br><br>
+      
+          <label for="customerPhone">Phone:</label>
+          <input type="tel" id="customerPhone" name="customerPhone" required><br><br>
+
+          <label for="Address">Address:</label>
+          <input type="text" id="address" name="address" required><br><br>
+      
+          <label for="foodItemSelect">Select a Food Item:</label>
+          <select id="foodItemSelect" name="foodItem" required>
+          </select><br><br>
+      
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" min="1" value="1" required><br><br>
+      
+          <button type="button" id="submitOrderButton">Place Order</button>
+        </form>
+    </section>
+
+    
+    
+    <footer>
+      <div class="footer" id="footer">
+      <div class="row">
+      <a href="https://web.facebook.com/?_rdc=1&_rdr"><i class="fa fa-facebook"></i></a>
+      <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>
+      <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter"></i></a>
+      </div>
+      
+      <div class="row">
+      <ul>
+      <li><a href="#">Contact us</a></li>
+      <li><a class="scroll-link" href="#services">Our Services</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+      <li><a href="#">Career</a></li>
+      </ul>
+      </div>
+      
+      <div class="row">
+      The Outer Clover Copyright © 2023 Res - All rights reserved ||
+      </div>
+      </div>
+      </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: .2s linear;
+    outline: none; border: none;
+    text-transform: capitalize;
+}
+
+body{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(Assets/contact.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image: url(Assets/Sprinkle.svg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    z-index: 1000;
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.Logo {
+    color: rgb(44, 44, 44);
+    font-size: 1.5em;
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav ol {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.login-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.5s ease-in-out;
+}
+
+.login-link ion-icon {
+    font-size: 2em;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.login-link:hover {
+    color: #ed174c;
+}
+
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color: #333;
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgba(255, 51, 153, .05);
+
+}
+
+.heading span{
+   color: white; 
+}
+
+.menu2{
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #8338ec;
+    cursor: pointer;
+    display: none;
+    z-index: 800;
+}
+
+
+
+.btn {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    display: none;
+}
+
+.btn::before {
+    content: '\f0c9';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 700;
+    font-size: 2em;
+    display: none;
+}
+
+.nav ol li {
+    margin: 1em;
+}
+
+.nav ol li a {
+    text-decoration: none;
+    padding: 0.2em 1.2em 0.9em 1.2em;
+    border-radius: 10px 10px 0 0;
+    color: rgb(39, 39, 39);
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+}
+
+.nav ol li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 41px;
+    border-radius: 10px 10px 0 0;
+    background: #853333;
+    transform-origin: bottom;
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    transform: scaleY(0.05);
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.nav ol li a:hover::before {
+    transform: scaleY(1.1);
+}
+
+.nav ol li a:hover {
+    color: white;
+}
+
+.nav ol li a.active {
+    color: white;
+    background-color: #ed174c;
+    border-radius: 10px 10px 0 0;
+}
+
+.btnrsrv {
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background: #ed174c;
+    color: #fff;
+    padding: 0.9rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+    transition: 0.5s ease-in-out; 
+}
+
+.btnrsrv:hover {
+    background: #333;
+}
+
+
+.footer{
+    background:#000;
+    padding:30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align:center;
+    bottom: 0;
+    width: 100%;
+
+    }
+    
+    .footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+    }
+    
+    .footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+    }
+    
+    .footer .row a:hover{
+    color:#fff;
+    }
+    
+    .footer .row ul{
+    width:100%;
+    }
+    
+    .footer .row ul li{
+    display:inline-block;
+    margin:0px 30px;
+    }
+    
+    .footer .row a i{
+    font-size:2em;
+    margin:0% 1%;
+    }
+    
+    @media (max-width:720px){
+    .footer{
+    text-align:left;
+    padding:5%;
+    }
+    .footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+    }
+    .footer .row a i{
+    margin:0% 3%;
+    }
+    }
+
+
+@media (max-width: 900px) {
+    .btn {
+        display: flex;
+        z-index: 100;
+    }
+
+    .nav {
+        width: 100%;
+        height: 400px;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        background:url(Assets/Wave.svg);
+        transform: translateY(-110%);
+        transition: all 0.4s;
+        flex-direction: column;
+    }
+
+    input:checked ~ .nav {
+        transform: translateY(0%);
+    }
+
+    input:checked::before {
+        content: '\f00d';
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    .home {
+        background-position: left;
+    }
+
+    .menu2 {
+        display: inline-flex;
+        padding-right: 100px;
+        }
+    
+        #check:checked~.menu2 #menu-icon{
+            display: none;
+        }
+    
+        .menu2 #close-icon{
+            display:none;
+        }
+    
+        #check:checked~.menu2 #close-icon{
+            display: block;
+        }
+    .nav ol {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .heading {
+        font-size: 3rem;
+    }
+
+    .availability form .flex .box {
+        flex: 1 1 100%;
+    }
+
+    
+}
+
+
+
+#contactSection {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+#contactSection h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+input:hover,
+textarea:hover {
+    background-color: #f5f5f5;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.contact-section {
+    margin-top: 100px;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fefae0;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.contact-title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-description {
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.contact-info-box {
+    text-align: center;
+    flex: 1 1 300px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #eae2b7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95),
+        box-shadow 0.3s ease-in-out;
+}
+
+.contact-info-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    transition: transform 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.contact-image:hover {
+    transform: scale(1.05);
+}
+
+.contact-info-title {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-info-detail {
+    color: #555;
+    font-size: 1.1em;
+    transition: color 0.3s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .contact-info-box {
+        flex-basis: 100%;
+    }
+}
+    

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="login-register.css">
+    <title>Login/Signup</title>
+
+</head>
+<body>
+    <header>
+        <p class="Logo">The Outer Clove</p>
+        <input type="checkbox" class="btn" id="check" />
+        <label for="check" class="menu2">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+        
+        <div class="nav">
+            <ol>
+                <li><a href="index.html" >Home</a></li>
+            </ol>
+        </div>
+        <span class="login">
+            <a href="admin_login.html" class="login-link" >
+                <ion-icon name="construct-outline" aria-hidden="true"></ion-icon>
+                Admin
+            </a>
+        </span>
+        <span class="login">
+            <a href="staff_login.html" class="login-link" >
+                <ion-icon name="build-outline" aria-hidden="true"></ion-icon>
+                Staff
+            </a>
+        </span>
+    </header>
+    <div class="wrapper">
+        <!-- Registration Form -->
+        <div class="form-box register">
+            <h2>Registration</h2>
+            <form action="process.php" method="post">
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="text" name="firstName" required>
+                    <label>First Name</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="text" name="lastName" required>
+                    <label>Last Name</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email/text" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="call"></ion-icon>
+                    </span>
+                    <input type="tel" name="contactNo" required>
+                    <label>Contact No.</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" name="confirmPassword" required>
+                    <label>Confirm Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" name="terms" required>
+                        Agree to the terms & conditions
+                    </label>
+                </div>
+                <button type="submit" name="register" class="btnlogin">Register</button>
+                <div class="login-register">
+                    <p>Already have an account?<a href="#" class="login-lnk"> Login</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="process.php" method="post">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email\text" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox">
+                        Remember Me
+                    </label>
+                    <a href="#">Forgot Password</a>
+                </div>
+                <button type="submit" name="login" class="btnlogin">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account?<a href="#" class="register-link"> Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="Assets/script.js"></script>
+</body>
+</html>
